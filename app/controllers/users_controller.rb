@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
     @posts = current_user.posts.order(created_at: :desc)
   end
 
@@ -22,7 +23,8 @@ class UsersController < ApplicationController
       :bio,
       :email,
       :phone,
-      :gender
+      :gender,
+      :avatar
     )
   end
 end
