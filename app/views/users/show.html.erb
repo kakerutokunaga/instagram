@@ -14,7 +14,8 @@
         </a>
       </div>
       <ul class="posts">
-        <li><span>12</span> posts</li>
+
+        <li><span><%= @posts.count %></span> posts</li>
         <li><span>195</span> followers</li>
         <li><span>345</span> following</li>
       </ul>
@@ -44,13 +45,9 @@
 </div>
 
 <div class="user-images">
+  <% @posts.each do |post|%>
   <div class="wrapper">
-    <img src="your_image_url">
+    <%=image_tag post.image %>
   </div>
-  <div class="wrapper">
-    <img src="your_image_url">
-  </div>
-  <div class="wrapper">
-    <img src="your_image_url">
-  </div>
+  <% end %>
 </div>
