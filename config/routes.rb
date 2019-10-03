@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :users, only: %i[show edit update]
-  resources :posts, only: %i[new create]
+  resources :posts, only: %i[new create show destroy]
 end
