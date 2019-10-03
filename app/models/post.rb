@@ -19,7 +19,7 @@ class Post < ApplicationRecord
   def create_hash_tags
     #create hashtags of post
     extract_name_hash_tags.each do |name|
-      hash_tag.create(name: name)
+      hash_tags.create(name: name)
     end
   end
 end

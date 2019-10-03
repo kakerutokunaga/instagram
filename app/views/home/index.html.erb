@@ -21,9 +21,9 @@
       <div class="user">
         <div class="avatar">
           <% if post.user.avatar.attached? %>
-            <%= link_to user_path(post.user) do %>
-              <%= image_tag post.user.avatar %>
-            <% end %>
+          <%= link_to user_path(post.user) do %>
+          <%= image_tag post.user.avatar %>
+          <% end %>
           <% end %>
         </div>
         <div class="username">
@@ -32,7 +32,13 @@
       </div>
       <%= image_tag post.image, class: 'main-image' %>
       <div class="description">
-        <%= post.description %>
+        <% post.description.to_s.split(' ').each do |word| %>
+        <% if word.start_with?('#') %>
+        <%= link_to word, search_path(query: word) %>
+        <%else %>
+        <%= word %>
+        <%end %>
+        <% end %>
       </div>
     </section>
     <% end %>
